@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "./auth/useAuth";
-import LandingPage from './components/LandingPage'
-import LoginPage from './components/LoginPage'
-import SignupPage from './components/SignupPage'
-import Dashboard from './components/Dashboard'
-import TicketManagement from './components/TicketManagement'
+import LandingPage from './pages/LandingPage'
+import LoginPage from './pages/LoginPage'
+import SignupPage from './pages/SignupPage'
+import Dashboard from './pages/Dashboard'
+import TicketManagement from './pages/TicketManagement'
 
 export default function App() {
     const [currentPage, setCurrentPage] = useState('landing');
