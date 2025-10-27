@@ -44,7 +44,7 @@ export default function TicketModal({ ticket, onClose, onSave }: TicketModalProp
             <div className="bg-white rounded-xl p-4 sm:p-6 lg:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto">
                 <div className="flex justify-between items-center mb-4 sm:mb-6">
                     <h2 className="text-xl sm:text-2xl font-bold">{ticket ? "Edit Ticket" : "Create Ticket"}</h2>
-                    <button onClick={onClose} aria-label="close" className="text-gray-500 hover:text-gray-700 cursor-pointer">
+                    <button onClick={onClose} aria-label="close" className="text-gray-500 cursor-pointer hover:text-gray-700 cursor-pointer">
                         <X size={24} />
                     </button>
                 </div>
@@ -91,14 +91,14 @@ export default function TicketModal({ ticket, onClose, onSave }: TicketModalProp
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                         <button
                             onClick={handleSubmit}
-                            className="w-full py-2.5 sm:py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition text-sm sm:text-base cursor-pointer"
+                            className="w-full py-2.5 sm:py-3 bg-indigo-600 text-white cursor-pointer rounded-lg font-semibold hover:bg-indigo-700 transition text-sm sm:text-base cursor-pointer"
                         >
                         {ticket ? "Update" : "Create"}
                         </button>
 
                         <button
                             onClick={onClose}
-                            className="w-full py-2.5 sm:py-3 bg-gray-200 text-gray-800 rounded-lg font-semibold hover:bg-gray-300 transition text-sm sm:text-base cursor-pointer"
+                            className="w-full py-2.5 sm:py-3 bg-gray-200 text-gray-800 cursor-pointer rounded-lg font-semibold hover:bg-gray-300 transition text-sm sm:text-base cursor-pointer"
                         >
                         Cancel
                         </button>
