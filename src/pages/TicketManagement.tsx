@@ -104,89 +104,91 @@ export default function TicketManagement({ onNavigate }: TicketManagementProps) 
     };
 
     return (
-        <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100">
+        <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 flex flex-col">
             {toast && <Toast {...toast} onClose={() => setToast(null)} />}
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
-                <div className="flex flex-col gap-4 mb-6 sm:mb-8">
-                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
-                        <div>
-                            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">Ticket Management</h1>
-                            <button
-                                onClick={() => onNavigate("dashboard")}
-                                className="text-indigo-600 hover:underline mt-2 text-sm sm:text-base"
-                            >
-                                ← Back to Dashboard
-                            </button>
-                        </div>
-
-                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                            <button
-                                onClick={() => {
-                                setEditingTicket(null);
-                                setShowModal(true);
-                                }}
-                                className="flex items-center justify-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition text-sm sm:text-base"
-                            >
-                                <Plus size={20} />
-                                New Ticket
-                            </button>
-
-                            <button
-                                onClick={handleLogout}
-                                className="flex items-center justify-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition text-sm sm:text-base"
-                            >
-                                <LogOut size={20} />
-                                Logout
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                {tickets.length === 0 ? (
-                    <div className="text-center py-12 sm:py-16">
-                        <Ticket size={48} className="mx-auto text-gray-400 mb-4 sm:w-16 sm:h-16" />
-                        <p className="text-gray-600 text-base sm:text-lg px-4">No tickets yet. Create your first ticket!</p>
-                    </div>
-                ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                        {tickets.map((ticket) => (
-                            <div key={ticket.id} className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
-                                <div className="flex justify-between items-start gap-2 mb-3 sm:mb-4">
-                                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 break-words flex-1">{ticket.title}</h3>
-                                    <span
-                                        className={`px-2 sm:px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap flex-shrink-0 ${getStatusColor(
-                                        ticket.status
-                                        )}`}
-                                    >
-                                        {getStatusLabel(ticket.status)}
-                                    </span>
-                                </div>
-
-                                {ticket.description && (
-                                    <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-3">{ticket.description}</p>
-                                )}
-
-                                <div className="flex flex-col sm:flex-row gap-2">
-                                    <button
-                                        onClick={() => handleEdit(ticket)}
-                                        className="flex items-center justify-center gap-1 px-3 py-1.5 sm:py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition text-sm"
-                                    >
-                                        <SquarePen size={16} />
-                                        Edit
-                                    </button>
-                                    <button
-                                        onClick={() => setDeleteConfirm(ticket.id)}
-                                        className="flex items-center justify-center gap-1 px-3 py-1.5 sm:py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition text-sm"
-                                    >
-                                        <Trash2 size={16} />
-                                        Delete
-                                    </button>
-                                </div>
+            <div className="flex-grow">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
+                    <div className="flex flex-col gap-4 mb-6 sm:mb-8">
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
+                            <div>
+                                <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">Ticket Management</h1>
+                                <button
+                                    onClick={() => onNavigate("dashboard")}
+                                    className="text-indigo-600 hover:underline mt-2 text-sm sm:text-base cursor-pointer"
+                                >
+                                    ← Back to Dashboard
+                                </button>
                             </div>
-                        ))}
+
+                            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                                <button
+                                    onClick={() => {
+                                    setEditingTicket(null);
+                                    setShowModal(true);
+                                    }}
+                                    className="flex items-center justify-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition text-sm sm:text-base cursor-pointer"
+                                >
+                                    <Plus size={20} />
+                                    New Ticket
+                                </button>
+
+                                <button
+                                    onClick={handleLogout}
+                                    className="flex items-center justify-center gap-2 px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition text-sm sm:text-base cursor-pointer"
+                                >
+                                    <LogOut size={20} />
+                                    Logout
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                )}
+
+                    {tickets.length === 0 ? (
+                        <div className="text-center py-12 sm:py-16">
+                            <Ticket size={48} className="mx-auto text-gray-400 mb-4 sm:w-16 sm:h-16" />
+                            <p className="text-gray-600 text-base sm:text-lg px-4">No tickets yet. Create your first ticket!</p>
+                        </div>
+                    ) : (
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                            {tickets.map((ticket) => (
+                                <div key={ticket.id} className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
+                                    <div className="flex justify-between items-start gap-2 mb-3 sm:mb-4">
+                                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 break-words flex-1">{ticket.title}</h3>
+                                        <span
+                                            className={`px-2 sm:px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap flex-shrink-0 ${getStatusColor(
+                                            ticket.status
+                                            )}`}
+                                        >
+                                            {getStatusLabel(ticket.status)}
+                                        </span>
+                                    </div>
+
+                                    {ticket.description && (
+                                        <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-3">{ticket.description}</p>
+                                    )}
+
+                                    <div className="flex flex-col sm:flex-row gap-2">
+                                        <button
+                                            onClick={() => handleEdit(ticket)}
+                                            className="flex items-center justify-center gap-1 px-3 py-1.5 sm:py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition text-sm"
+                                        >
+                                            <SquarePen size={16} />
+                                            Edit
+                                        </button>
+                                        <button
+                                            onClick={() => setDeleteConfirm(ticket.id)}
+                                            className="flex items-center justify-center gap-1 px-3 py-1.5 sm:py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition text-sm"
+                                        >
+                                            <Trash2 size={16} />
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
             </div>
 
             {showModal && (
