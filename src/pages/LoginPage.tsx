@@ -84,7 +84,7 @@ export default function LoginPage({ onNavigate }: LoginPageProps) {
 
                     <button
                         type="submit"
-                        className="w-full py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition"
+                        className="w-full py-3 bg-indigo-600 text-white rounded-lg font-semibold hover:bg-indigo-700 transition cursor-pointer"
                     >
                         Login
                     </button>
@@ -94,7 +94,7 @@ export default function LoginPage({ onNavigate }: LoginPageProps) {
                     Don't have an account?{" "}
                     <button
                         onClick={() => onNavigate("signup")}
-                        className="text-indigo-600 hover:underline"
+                        className="text-indigo-600 hover:underline cursor-pointer"
                     >
                         Sign up
                     </button>
