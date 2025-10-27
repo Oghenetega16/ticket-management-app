@@ -107,7 +107,7 @@ export default function TicketManagement({ onNavigate }: TicketManagementProps) 
         <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 flex flex-col">
             {toast && <Toast {...toast} onClose={() => setToast(null)} />}
 
-            <div className="flex-grow">
+            <div className="grow">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
                     <div className="flex flex-col gap-4 mb-6 sm:mb-8">
                         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4">
@@ -171,14 +171,14 @@ export default function TicketManagement({ onNavigate }: TicketManagementProps) 
                                     <div className="flex flex-col sm:flex-row gap-2">
                                         <button
                                             onClick={() => handleEdit(ticket)}
-                                            className="flex items-center justify-center gap-1 px-3 py-1.5 sm:py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition text-sm"
+                                            className="flex items-center justify-center gap-1 px-3 py-1.5 cursor-pointer sm:py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition text-sm"
                                         >
                                             <SquarePen size={16} />
                                             Edit
                                         </button>
                                         <button
                                             onClick={() => setDeleteConfirm(ticket.id)}
-                                            className="flex items-center justify-center gap-1 px-3 py-1.5 sm:py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition text-sm"
+                                            className="flex items-center justify-center gap-1 px-3 py-1.5 cursor-pointer sm:py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition text-sm"
                                         >
                                             <Trash2 size={16} />
                                             Delete
@@ -211,14 +211,14 @@ export default function TicketManagement({ onNavigate }: TicketManagementProps) 
                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                             <button
                                 onClick={() => handleDelete(deleteConfirm)}
-                                className="w-full py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition text-sm sm:text-base"
+                                className="w-full py-2 bg-red-500 text-white cursor-pointer rounded-lg hover:bg-red-600 transition text-sm sm:text-base"
                             >
                                 Delete
                             </button>
 
                             <button
                                 onClick={() => setDeleteConfirm(null)}
-                                className="w-full py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition text-sm sm:text-base"
+                                className="w-full py-2 bg-gray-200 text-gray-800 cursor-pointer rounded-lg hover:bg-gray-300 transition text-sm sm:text-base"
                             >
                                 Cancel
                             </button>
