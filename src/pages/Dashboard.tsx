@@ -41,8 +41,8 @@ export default function Dashboard({ onNavigate }: DashboardProps) {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex flex-col">
-            <div className="flex-grow">
+        <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 flex flex-col">
+            <div className="grow">
                 <div className="max-w-7xl mx-auto px-4 py-8">
                     <div className="flex justify-between items-center mb-8">
                         <div>

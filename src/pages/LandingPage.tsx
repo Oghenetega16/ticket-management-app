@@ -1,23 +1,14 @@
 import { AlertCircle, CheckCircle, Ticket } from 'lucide-react';
+import Footer from '../components/Footer';
 
 interface LandingPageProps {
     onNavigate: (page: 'login' | 'signup') => void;
 }
 
-function Footer() {
-    return (
-        <footer className="bg-gray-900 text-white py-8">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <p className="text-sm">© 2025 TicketFlow. All rights reserved.</p>
-            </div>
-        </footer>
-    );
-}
-
 export default function LandingPage({ onNavigate }: LandingPageProps) {
     return (
         <div className="min-h-screen flex flex-col">
-            <div className="flex-grow">
+            <div className="grow">
                 <div className="relative overflow-hidden">
                     <svg
                         className="absolute bottom-0 w-full h-32 sm:h-48 md:h-64 lg:h-80"
